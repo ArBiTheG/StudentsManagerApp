@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentsManagerApp.Application.Common
+namespace MediatorLib
 {
     public interface IRequestHandler<TRequest,TResponse> where TRequest : IRequest<TResponse>, new()
     {
