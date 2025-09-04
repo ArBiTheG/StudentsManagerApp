@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace StudentsManagerApp.Domain.Common
 {
+    /// <summary>
+    /// Базовый класс модели <c>Сущность</c>
+    /// </summary>
     public abstract class Entity
     {
         /// <summary>
-        /// Идентификатор личности
+        /// Идентификатор сущности
         /// </summary>
         [Key]
         public int Id { get; set; }

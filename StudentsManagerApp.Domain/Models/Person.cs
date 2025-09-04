@@ -1,5 +1,5 @@
 ﻿using StudentsManagerApp.Domain.Common;
-using StudentsManagerApp.Domain.Common.Interfaces;
+using StudentsManagerApp.Domain.Interfaces;
 using StudentsManagerApp.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -10,40 +10,43 @@ using System.Threading.Tasks;
 
 namespace StudentsManagerApp.Domain.Models
 {
-    public class Person: Entity, IClonable<Person>
+    /// <summary>
+    /// Класс модели <c>Личность</c>
+    /// </summary>
+    public class Person: Entity, ICloneable<Person>
     {
         /// <summary>
-        /// Имя
+        /// Имя личности
         /// </summary>
         [Required]
         [StringLength(64)]
         public string FirstName { get; set; }
         /// <summary>
-        /// Фамилия
+        /// Фамилия личности
         /// </summary>
         [Required]
         [StringLength(64)]
         public string MiddleName { get; set; }
         /// <summary>
-        /// Отчество
+        /// Отчество личности
         /// </summary>
         [StringLength(64)]
         public string? LastName { get; set; }
         /// <summary>
-        /// День рождения
+        /// День рождения личности
         /// </summary>
         public DateTime BirthDay { get; set; }
         /// <summary>
-        /// Пол
+        /// Пол личности
         /// </summary>
         public GenderType Gender { get; set; }
         /// <summary>
         /// О личности
         /// </summary>
         [StringLength(65536)]
-        public string? About { get; set; }
+        public string About { get; set; }
 
-        public Person(): base()
+        public Person()
         {
             FirstName = string.Empty;
             MiddleName = string.Empty;
@@ -62,9 +65,9 @@ namespace StudentsManagerApp.Domain.Models
             About = person.About;
         }
 
-        public Person Clone(Person entity)
+        public Person Clone()
         {
-            return new Person(entity);
+            return new Person(this);
         }
     }
 }

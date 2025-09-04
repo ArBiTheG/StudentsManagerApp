@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentsManagerApp.Domain.Common.Interfaces
+namespace StudentsManagerApp.Domain.Interfaces
 {
-    public interface IClonable<TEntity> where TEntity : Entity, new()
+    public interface ICloneable<TEntity>
     {
         /// <summary>
         /// Клонирование объекта
         /// </summary>
         /// <param name="entity">Сущность объекта</param>
         /// <returns></returns>
-        public TEntity Clone(TEntity entity);
+        public TEntity Clone();
     }
 }
